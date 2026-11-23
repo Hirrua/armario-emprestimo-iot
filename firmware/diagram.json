@@ -1,0 +1,320 @@
+{
+  "version": 1,
+  "author": "Armario de Emprestimo",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "teclado",
+      "top": -60,
+      "left": -390,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "trava",
+      "top": -170,
+      "left": 160,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "porta",
+      "top": -190,
+      "left": -60,
+      "attrs": {
+        "distance": "5"
+      }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": -110,
+      "left": 380,
+      "attrs": {
+        "volume": "0.2"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_verde",
+      "top": 20,
+      "left": 330,
+      "attrs": {
+        "color": "green",
+        "label": "liberado"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_vermelho",
+      "top": 20,
+      "left": 380,
+      "attrs": {
+        "color": "red",
+        "label": "travado"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 100,
+      "left": 300,
+      "rotate": 90,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 100,
+      "left": 350,
+      "rotate": 90,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-slide-switch",
+      "id": "slot1",
+      "top": 200,
+      "left": 200,
+      "attrs": {
+        "label": "slot 1"
+      }
+    },
+    {
+      "type": "wokwi-slide-switch",
+      "id": "slot2",
+      "top": 200,
+      "left": 270,
+      "attrs": {
+        "label": "slot 2"
+      }
+    },
+    {
+      "type": "wokwi-slide-switch",
+      "id": "slot3",
+      "top": 200,
+      "left": 340,
+      "attrs": {
+        "label": "slot 3"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX0",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX0",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "teclado:R1",
+      "esp:D13",
+      "green",
+      []
+    ],
+    [
+      "teclado:R2",
+      "esp:D14",
+      "green",
+      []
+    ],
+    [
+      "teclado:R3",
+      "esp:D27",
+      "green",
+      []
+    ],
+    [
+      "teclado:R4",
+      "esp:D26",
+      "green",
+      []
+    ],
+    [
+      "teclado:C1",
+      "esp:D25",
+      "blue",
+      []
+    ],
+    [
+      "teclado:C2",
+      "esp:D33",
+      "blue",
+      []
+    ],
+    [
+      "teclado:C3",
+      "esp:D32",
+      "blue",
+      []
+    ],
+    [
+      "teclado:C4",
+      "esp:RX2",
+      "blue",
+      []
+    ],
+    [
+      "trava:PWM",
+      "esp:D18",
+      "orange",
+      []
+    ],
+    [
+      "trava:V+",
+      "esp:VIN",
+      "red",
+      []
+    ],
+    [
+      "trava:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "porta:VCC",
+      "esp:VIN",
+      "red",
+      []
+    ],
+    [
+      "porta:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "porta:TRIG",
+      "esp:D5",
+      "purple",
+      []
+    ],
+    [
+      "porta:ECHO",
+      "esp:D34",
+      "violet",
+      []
+    ],
+    [
+      "buzzer:2",
+      "esp:D19",
+      "gold",
+      []
+    ],
+    [
+      "buzzer:1",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "esp:D4",
+      "r1:1",
+      "green",
+      []
+    ],
+    [
+      "r1:2",
+      "led_verde:A",
+      "green",
+      []
+    ],
+    [
+      "led_verde:C",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "esp:D15",
+      "r2:1",
+      "red",
+      []
+    ],
+    [
+      "r2:2",
+      "led_vermelho:A",
+      "red",
+      []
+    ],
+    [
+      "led_vermelho:C",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "slot1:2",
+      "esp:D21",
+      "cyan",
+      []
+    ],
+    [
+      "slot1:1",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "slot1:3",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "slot2:2",
+      "esp:D22",
+      "cyan",
+      []
+    ],
+    [
+      "slot2:1",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "slot2:3",
+      "esp:3V3",
+      "red",
+      []
+    ],
+    [
+      "slot3:2",
+      "esp:D23",
+      "cyan",
+      []
+    ],
+    [
+      "slot3:1",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "slot3:3",
+      "esp:3V3",
+      "red",
+      []
+    ]
+  ],
+  "dependencies": {}
+}

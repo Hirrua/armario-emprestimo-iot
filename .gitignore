@@ -1,0 +1,5 @@
+firmware/secrets.h
+worker/.dev.vars
+worker/node_modules/
+worker/.wrangler/
+.env

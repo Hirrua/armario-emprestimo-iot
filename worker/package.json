@@ -1,0 +1,16 @@
+{
+  "name": "armario-emprestimo-worker",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "wrangler dev",
+    "db:local": "wrangler d1 execute DB --local --file=schema.sql && wrangler d1 execute DB --local --file=seed.sql",
+    "db:remote": "wrangler d1 execute DB --remote --file=schema.sql && wrangler d1 execute DB --remote --file=seed.sql",
+    "deploy": "wrangler deploy",
+    "ataque": "node scripts/ataque.mjs"
+  },
+  "devDependencies": {
+    "mqtt": "^5.16.1",
+    "wrangler": "^4.166.0"
+  },
+  "private": true
+}

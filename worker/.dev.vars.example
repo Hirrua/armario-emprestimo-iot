@@ -1,0 +1,5 @@
+DEVICE_TOKEN=gere_com_openssl_rand_hex_32
+HMAC_KEY=gere_com_openssl_rand_hex_32
+PAINEL_SENHA=uma_senha_para_o_painel
+MQTT_PAINEL_USER=painel
+MQTT_PAINEL_PASS=senha_do_usuario_painel_no_emqx

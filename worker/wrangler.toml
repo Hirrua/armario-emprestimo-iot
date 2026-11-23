@@ -1,0 +1,37 @@
+name = "armario-emprestimo"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+
+# D1 e KV já existentes (do outro trabalho). As tabelas usam prefixo arm_
+# e as chaves do KV usam prefixo armario: para não misturar com o que já existe.
+[[d1_databases]]
+binding = "DB"
+database_name = "iot"
+database_id = "6db406bc-2624-40a7-a5cf-49366c650710"
+
+[[kv_namespaces]]
+binding = "KV"
+id = "b39c36c90e3243589a42ce2b86770c5a"
+
+# Atrasos e limpeza LGPD a cada 30 minutos
+[triggers]
+crons = ["*/30 * * * *"]
+
+[vars]
+DEVICE_ID = "lab1"
+TOPICO_BASE = "sis1a/hirrua/lab1/armario"
+MQTT_HOST = "t5135a81.ala.us-east-1.emqxsl.com"
+EMQX_API_URL = "https://t5135a81.ala.us-east-1.emqxsl.com:8443/api/v5"
+MQTT_WSS_PORT = "8084"
+ATRASO_HORAS = "24"
+COOLDOWN_ATRASO_S = "21600"
+RETENCAO_DIAS_EMPRESTIMOS = "90"
+RETENCAO_DIAS_ACESSOS = "30"
+
+# Segredos (não ficam aqui). Em produção use:
+#   npx wrangler secret put DEVICE_TOKEN
+#   npx wrangler secret put HMAC_KEY
+#   npx wrangler secret put PAINEL_SENHA
+#   npx wrangler secret put MQTT_PAINEL_USER
+#   npx wrangler secret put MQTT_PAINEL_PASS
+# Para rodar local, copie .dev.vars.example para .dev.vars.

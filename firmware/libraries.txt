@@ -1,0 +1,5 @@
+# Bibliotecas usadas no Wokwi
+PubSubClient
+ArduinoJson
+Keypad
+ESP32Servo
